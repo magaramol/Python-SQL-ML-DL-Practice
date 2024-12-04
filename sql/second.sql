@@ -13,3 +13,14 @@ where a.DepartmentID!=c.DepartmentID
 
 select sum(salary),DepartmentID from employees
 group by DepartmentID;
+
+
+-- 4. Find the employee(s) who are working on the highest number of projects.
+
+select count(ProjectID) as cnt, a.EmployeeID from employeeprojects a
+left join employees b
+on a.EmployeeID=b.EmployeeID
+group by a.EmployeeID
+order by cnt desc;
+
+
